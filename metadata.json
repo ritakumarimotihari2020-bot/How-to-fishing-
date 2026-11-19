@@ -1,0 +1,6 @@
+{
+  "name": "Ultimate Fishing Simulator 3D",
+  "description": "A realistic 3D fishing simulator with explorable oceans, lakes, rivers, drivable boats, underwater fish AI, tension-based reeling, aquarium, and tackle shop.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
