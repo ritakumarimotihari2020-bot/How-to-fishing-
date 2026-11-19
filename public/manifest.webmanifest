@@ -1,0 +1,21 @@
+{
+  "id": "./",
+  "name": "Ultimate Fishing Simulator 3D",
+  "short_name": "Fishing Sim 3D",
+  "description": "Explore lakes and oceans, captain boats, and catch fish in a 3D fishing simulator.",
+  "start_url": "./?autostart=0",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "landscape",
+  "background_color": "#06131f",
+  "theme_color": "#06131f",
+  "categories": ["games", "sports", "entertainment"],
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
