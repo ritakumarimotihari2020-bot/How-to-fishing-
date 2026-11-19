@@ -6,19 +6,20 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
+    // GitHub Pages hosts this repository under /How-to-fishing-/.
+    // Local development and other hosts continue to use the domain root.
+    base: process.env.GITHUB_ACTIONS === 'true' ? '/How-to-fishing-/' : '/',
     plugins: [
       react(),
       tailwindcss(),
       // Copies src/assets into dist/ so root-relative URLs like
-      // "/src/assets/images/..." (e.g. generate_image output) still resolve
+      // "/src/assets/images/..." (e.g. generated image output) still resolve
       // in production builds. Do not remove.
       {
         name: 'copy-unbundled-src-assets',
         apply: 'build',
         closeBundle(error?: Error): void {
-          if (error) {
-            return;
-          }
+          if (error) return;
           const distDir = path.resolve(__dirname, 'dist');
           const srcAssets = path.resolve(__dirname, 'src/assets');
           const distAssets = path.resolve(distDir, 'src/assets');
@@ -35,9 +36,7 @@ export default defineConfig(() => {
     },
     server: {
       // HMR is disabled in AI Studio via DISABLE_HMR env var.
-      // Do not modify—file watching is disabled to prevent flickering during agent edits.
       hmr: process.env.DISABLE_HMR !== 'true',
-      // Disable file watching when DISABLE_HMR is true to save CPU during agent edits.
       watch: process.env.DISABLE_HMR === 'true' ? null : {},
     },
   };
